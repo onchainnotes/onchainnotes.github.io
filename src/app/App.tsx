@@ -1,7 +1,18 @@
 import { Menu, X, Download, Shield, Smartphone, Zap, Apple } from 'lucide-react';
 import { useState } from 'react';
+import { Route, Routes, Link } from "react-router-dom";
+import Privacy from "./pages/Privacy";
 
 export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/privacy" element={<Privacy />} />
+    </Routes>
+  );
+}
+
+function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -22,7 +33,7 @@ export default function App() {
               <a href="#features" className="text-gray-600 hover:text-green-600 transition font-medium">功能特性</a>
               <a href="#screenshots" className="text-gray-600 hover:text-green-600 transition font-medium">应用截图</a>
               <a href="#download" className="text-gray-600 hover:text-green-600 transition font-medium">下载应用</a>
-              <a href="https://onchainnotes.github.io/privacy" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-green-600 transition font-medium">隐私政策</a>
+              <Link to="/privacy" className="text-gray-600 hover:text-green-600 transition font-medium">隐私政策</Link>
             </div>
 
             {/* 移动端菜单按钮 */}
@@ -42,7 +53,13 @@ export default function App() {
               <a href="#features" className="block text-gray-600 hover:text-green-600 py-2 font-medium">功能特性</a>
               <a href="#screenshots" className="block text-gray-600 hover:text-green-600 py-2 font-medium">应用截图</a>
               <a href="#download" className="block text-gray-600 hover:text-green-600 py-2 font-medium">下载应用</a>
-              <a href="https://onchainnotes.github.io/privacy" target="_blank" rel="noopener noreferrer" className="block text-gray-600 hover:text-green-600 py-2 font-medium">隐私政策</a>
+              <Link
+                to="/privacy"
+                className="block text-gray-600 hover:text-green-600 py-2 font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                隐私政策
+              </Link>
             </div>
           </div>
         )}
@@ -229,9 +246,9 @@ export default function App() {
               <h4 className="font-semibold mb-4 text-lg">法律</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="https://onchainnotes.github.io/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition">
+                  <Link to="/privacy" className="hover:text-green-400 transition">
                     隐私政策
-                  </a>
+                  </Link>
                 </li>
                 <li><a href="#" className="hover:text-green-400 transition">服务条款</a></li>
                 <li><a href="#" className="hover:text-green-400 transition">联系我们</a></li>

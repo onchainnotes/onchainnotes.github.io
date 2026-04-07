@@ -2,20 +2,22 @@
 
 ChainNotes - 智能笔记，链上存储
 
+线上地址：`https://onchainnotes.github.io/`
+
 ## 本地开发
 
 ```bash
-# 安装依赖
-pnpm install
+# 安装依赖（推荐使用 npm，与 CI/Actions 一致）
+npm ci
 
 # 启动开发服务器
-pnpm dev
+npm run dev
 
 # 构建生产版本
-pnpm build
+npm run build
 
 # 预览构建结果
-pnpm preview
+npm run preview
 ```
 
 ## 部署到 GitHub Pages
@@ -24,17 +26,17 @@ pnpm preview
 
 1. 在 GitHub 仓库设置中，进入 `Settings > Pages`
 2. 在 "Source" 下选择 `GitHub Actions`
-3. 提交代码到 `main` 分支，GitHub Actions 会自动构建和部署
+3. 提交代码到默认分支（当前工作流监听 `main`），GitHub Actions 会自动构建和部署
 
 ### 方法二：手动部署
 
 ```bash
 # 构建项目
-pnpm build
+npm run build
 
 # 将 dist 目录的内容推送到 gh-pages 分支
 # 可以使用 gh-pages 包
-pnpm add -D gh-pages
+npm i -D gh-pages
 npx gh-pages -d dist
 ```
 
@@ -51,4 +53,4 @@ export default defineConfig({
 
 ## 隐私政策
 
-隐私政策链接：https://onchainnotes.github.io/privacy
+隐私政策链接：`https://onchainnotes.github.io/privacy`
