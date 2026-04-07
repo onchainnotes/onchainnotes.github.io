@@ -93,15 +93,14 @@ function Home() {
 
             <div className="relative">
               <div className="relative mx-auto w-72 h-[600px] bg-gradient-to-br from-green-500 to-emerald-600 rounded-[3rem] shadow-2xl p-3">
-                <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden">
-                  <div className="h-full flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div className="text-center p-8">
-                      <div className="w-20 h-20 bg-green-600 rounded-3xl mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-white text-3xl font-bold">O</span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">ChainNotes</h3>
-                      <p className="text-gray-600">您的智能笔记助手</p>
-                    </div>
+                <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-gray-100">
+                  <img
+                    src="/screenshots/note_0.png"
+                    alt="ChainNotes 应用界面"
+                    className="h-full w-full object-cover object-top"
+                  />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent px-4 pb-6 pt-12 text-center">
+                    <p className="text-sm font-medium text-white/95">您的智能笔记助手</p>
                   </div>
                 </div>
               </div>
@@ -165,8 +164,8 @@ function Home() {
             <p className="text-xl text-gray-600">简洁美观的界面设计</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[0, 1, 2, 3].map((item) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item) => (
               <div
                 key={item}
                 className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition"
