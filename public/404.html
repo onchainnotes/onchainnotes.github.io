@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChainNotes</title>
+  </head>
+  <body>
+    <script>
+      // GitHub Pages 对单页应用的子路由（如 /privacy）会返回 404。
+      // 这里把路径编码回传给 /?p=...，再由 index.html 还原，避免直链/刷新 404。
+      // 方案来源：rafgraph/spa-github-pages（业界常用做法）。
+      (function () {
+        var l = window.location;
+        var p = l.pathname;
+        var s = l.search;
+        var h = l.hash;
+        l.replace(
+          l.origin +
+            "/?p=" +
+            encodeURIComponent(p) +
+            (s ? "&q=" + encodeURIComponent(s.slice(1)) : "") +
+            (h ? "&h=" + encodeURIComponent(h.slice(1)) : "")
+        );
+      })();
+    </script>
+  </body>
+</html>
+

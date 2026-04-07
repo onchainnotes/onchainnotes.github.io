@@ -5,6 +5,18 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>链上笔记官网</title>
+      <script>
+        // 配合 public/404.html：把 /?p=/privacy 还原成真实路径，保证刷新/直链不 404。
+        (function () {
+          var params = new URLSearchParams(window.location.search);
+          var p = params.get("p");
+          if (!p) return;
+          var q = params.get("q");
+          var h = params.get("h");
+          var next = p + (q ? "?" + q : "") + (h ? "#" + h : "");
+          window.history.replaceState(null, "", next);
+        })();
+      </script>
     </head>
 
     <body>
