@@ -165,16 +165,19 @@ function Home() {
             <p className="text-xl text-gray-600">简洁美观的界面设计</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-                <div className="aspect-[9/16] bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-16 h-16 bg-green-600 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-white text-2xl font-bold">{item}</span>
-                    </div>
-                    <p className="text-gray-600 font-medium">应用截图 {item}</p>
-                  </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[0, 1, 2, 3].map((item) => (
+              <div
+                key={item}
+                className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition"
+              >
+                <div className="aspect-[9/16] bg-gray-50">
+                  <img
+                    src={`/screenshots/note_${item}.png`}
+                    alt={`ChainNotes 应用截图 ${item}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               </div>
             ))}

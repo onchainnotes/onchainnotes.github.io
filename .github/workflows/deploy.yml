@@ -3,7 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # 如果你的默认分支不是 main，请改成你的默认分支名
+      # 兼容不同默认分支：main/master 都触发部署
+      - main
+      - master
 
   # 允许手动触发
   workflow_dispatch:
@@ -36,6 +38,19 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Verify dist output
+        run: |
+          echo "== dist root =="
+          ls -la dist
+          echo "== dist/privacy (if exists) =="
+          ls -la dist/privacy || true
+
+      - name: Assert static entry files exist
+        run: |
+          test -f dist/privacy/index.html
+          test -f dist/privacy.html
+          test -f dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
